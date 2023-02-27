@@ -1,4 +1,5 @@
-# Description: Ejemplo de secuencialidad en Python
+
+from multiprocessing import Pool
 import random
 from time import sleep
 
@@ -10,9 +11,17 @@ def scrape(url):
     sleep(duration)
     print("done", url,"time taken: " ,duration, " seconds.")
     return url, duration
-    
-output= []
-for url in urls:
-    result= scrape(url)
-    output.append(result)
 
+pool= Pool(processes=4)
+
+data= pool.map(scrape, urls)
+scrape("a.com")
+scrape("b.com")
+scrape("c.com")
+scrape("d.com")
+
+pool.close()
+print()
+for row in data:
+    print(data)
+    
