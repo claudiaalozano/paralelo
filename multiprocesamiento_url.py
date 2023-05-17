@@ -11,11 +11,4 @@ def scrape(url):
     print("done", url,"time taken: " ,duration, " seconds.")
     return url, duration
 
-if __name__ == "__main__":
-    pool= Pool(processes=4)
-    data= pool.map(scrape, urls)
 
-    pool.close()
-
-    for row in data:
-        print(row)

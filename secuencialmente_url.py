@@ -11,8 +11,5 @@ def scrape(url):
     print("done", url,"time taken: " ,duration, " seconds.")
     return url, duration
     
-output= []
-for url in urls:
-    result= scrape(url)
-    output.append(result)
+
 
